@@ -1,0 +1,126 @@
+
+
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{scrextend}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usetikzlibrary{automata,positioning}
+\usepackage{graphicx}
+\usepackage{bm}
+
+
+
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{Adam Sanchez}
+\chead{APPM 4515-001: Homework 8}
+\cfoot{ }
+\rfoot{\thepage}
+
+
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential
+%
+
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework\ \#8}
+\newcommand{\hmwkDueDate}{November 25, 2020}
+\newcommand{\hmwkClass}{APPM 4515-001}
+\newcommand{\hmwkClassTime}{CU Boulder}
+\newcommand{\hmwkClassInstructor}{Dr. Meyer}
+\newcommand{\hmwkAuthorName}{\textbf{Adam Sanchez}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 11:59pm}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\textbf{Problem 1}
+
+\begin{eqnarray*}
+y' &=& \lambda y\\
+k_1 &=& h\lambda w_i\\
+k_2 &=& h\lambda \left(w_i + \frac{h\lambda w_i}{2}\right) = h\lambda w_i + \frac{h^2\lambda^2 w_i}{2}\\
+k_3 &=& h\lambda \left(wi +\frac{h\lambda w_i + \frac{h^2\lambda^2 w_i}{2}}{2}\right) = h\lambda w_i + \frac{h^2\lambda^2 w_i}{2}+\frac{h^3\lambda^3 w_i}{4}\\
+k_4 &=& h\lambda\left(h\lambda w_i + \frac{h^2\lambda^2 w_i}{2}+\frac{h^3\lambda^3 w_i}{4}\right)
+\end{eqnarray*}
+
+\begin{eqnarray*}
+w_{i+1} &=& w_i +\frac{1}{6}\left[ h\lambda w_i + 2h\lambda w_i + \frac{2h^2\lambda^2 w_i}{2} + 2h\lambda w_i + \frac{2h^2\lambda^2 w_i}{2}+\frac{2h^3\lambda^3 w_i}{4} + h\lambda w_i + h^2\lambda^2 w_i+ \frac{h^3\lambda^3 w_i}{2} + \frac{h^4\lambda^4 w_i}{4}\right]\\
+&=& w_i + \frac{w_i}{6}\left[h\lambda + 2h\lambda + h^2\lambda^2 + 2h\lambda + h^2\lambda^2 + \frac{h^3\lambda^3}{2}  + h\lambda + h^2\lambda^2 + \frac{h^3\lambda^3}{2} + \frac{h^4\lambda^4}{4}\right]\\
+&=& \left[1 + h\lambda + \frac{h^2\lambda^2}{2}+ \frac{h^3\lambda^3}{6}+\frac{h^4\lambda^4}{24}\right]w_i
+\end{eqnarray*}
+
+\begin{eqnarray*}
+&y'' +4y' +13y = 0\\
+&\text{ansatz } y = e^{rx}\\
+&r^2+4r+13 = 0\\
+&r = -2 \pm 3i\\
+&\implies y(x) = C_1e^{2x}\cos{3x}+C_2e^{-2x}\sin{3x}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+|Q(h\lambda)| &=& \left|1-2(\frac{3}{4})+ \frac{1}{2}\left(-2\frac{3}{4}\right)^2 + \frac{1}{6}\left(-2\frac{3}{4}\right)^3 + \frac{1}{24}\left(-2\frac{3}{4}\right)^4\right|\\
+&=&\left|\frac{35}{128}\right| < 1
+\end{eqnarray*}
+
+
+\end{document}
